@@ -1,0 +1,63 @@
+@import 'reset';
+
+@mixin colorStyle ($backgroundColor, $fontColor) {
+    background: $backgroundColor;
+    color: $fontColor;
+}
+
+@mixin space ($margin, $padding) {
+    margin: $margin;
+    padding: $padding;
+}
+
+$fontStyle: Arial, sans-serif;
+
+body{
+    background: red;
+    font-family: $fontStyle;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+h1{
+    @include colorStyle(yellow, black);
+    @include space(0, 20px);
+    display: flex;
+    justify-content: center;
+}
+
+.content{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 50%;
+}
+
+section:nth-child(even){
+    @include space(0, 30px);
+    @include colorStyle(black, white);
+    a{
+        @include colorStyle(black, white);
+    }
+    button{
+        @include colorStyle(yellow, black);
+        @include space(0px, 10px);
+        border: 0px solid;
+        margin-top: 20px;
+    }
+}
+
+section:nth-child(odd){
+    @include space(0, 30px);
+    @include colorStyle(lightgrey, black);
+    a{
+        @include colorStyle(lightgrey, black);
+    }
+    button{
+        @include colorStyle(black, white);
+        @include space(0px, 10px);
+        border: 0px solid;
+        margin-top: 20px;
+    }
+}
